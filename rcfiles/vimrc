@@ -1,0 +1,32 @@
+set background=dark
+colorscheme elflord
+set autoindent
+set smartindent
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set hlsearch
+set smartcase
+filetype plugin on
+
+
+" PHP autocommands
+autocmd FileType php let php_sql_query = 1
+autocmd FileType php let php_htmlInStrings = 1
+autocmd FileType php let php_noShortTags = 1
+autocmd FileType php let php_parent_error_close = 1
+autocmd FileType php let php_folding = 1 
+autocmd FileType php set makeprg=php\ -l\ %
+autocmd FileType php set errorformat=%m\ in\ %f\ on\ line\ %l
+
+" Perl autocommands
+autocmd FileType perl let perl_fold = 1
+autocmd FileType perl let perl_fold_blocks = 1
+autocmd FileType perl set makeprg=perl\ -c\ %\ $*
+autocmd FileType perl set errorformat=%f:%l:%m
+autocmd FileType perl set makeprg=perl\ -c\ %\ $*
+autocmd FileType perl set errorformat=%f:%l:%m
+
+
+" Python 
+autocmd FileType python let python_highlight_all = 1
