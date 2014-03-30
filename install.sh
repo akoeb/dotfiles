@@ -2,8 +2,20 @@
 # install the dotfiles, make backup of old ones
 # ATTENTION: not tested yet
 
-# TODO check HOME env var
-# TODO check existence of basename command
+# check HOME env var
+if [ -z "$HOME" ]
+then
+    echo "Cannot proceed without HOME environment variable"
+    exit 1
+fi
+
+# check existence of basename command
+if [ -z "$(which basename)" ]
+then
+    echo "Basename command is missing, vannot proceed"
+    exit 1
+fi
+
 # TODO check existance of sha1sum
 
 # function to copy is checksum is not changed. makes also backup
