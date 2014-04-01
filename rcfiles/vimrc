@@ -1,14 +1,38 @@
+" 256 terminal colors:
+set t_Co=256
+
+" black is beautiful
 set background=dark
 colorscheme elflord
-set autoindent
-set smartindent
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set hlsearch
-set smartcase
-filetype plugin on
 
+"set autoindent " see filetype comment
+"set smartindent " see filetype comment
+
+" expand tabs to spaces
+set expandtab
+
+" but expand cleverly:
+set smarttab
+" use 4 spaces for tabs:
+set shiftwidth=4
+set tabstop=4
+
+" filetype stuff
+"filetype plugin on
+
+" filetype based identation:
+" no need for smartident or autoident, filetype can handle this
+filetype indent on
+syntax enable
+
+" smart case conversion when searching:
+set smartcase
+
+" highlight search term:
+set hlsearch
+
+" show matching bracket:
+set showmatch
 
 " PHP autocommands
 autocmd FileType php let php_sql_query = 1

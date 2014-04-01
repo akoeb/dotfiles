@@ -1,16 +1,22 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# Record timestamps in history
+export HISTTIMEFORMAT='%F %T '
+
+# Use one command per line
+shopt -s cmdhist
+
+# Store history immediately
+export PROMPT_COMMAND='history -a'
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -20,9 +26,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -82,20 +85,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -AlF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias video_on="cvlc v4l2:///dev/video0 "
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -108,19 +103,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# enable local addons to bash config if present:
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
 
-
-# maven:
-export M2_HOME="/opt/apache-maven-3.1.1"
-export MAVEN_OPTS="-Xms256m -Xmx512m"
-export M2="$M2_HOME/bin"
-# flex SDK home
-export FLEX_SDK_HOME=/opt/flex
-alias mxmlc='/opt/jdk1.7.0_45/bin/java -jar "$FLEX_SDK_HOME/lib/mxmlc.jar" +flexlib="$FLEX_SDK_HOME/frameworks" "$@"' 
-alias adb="/opt/adt-bundle-linux-x86_64-20131030/sdk/platform-tools/adb"
-alias emulator="/opt/adt-bundle-linux-x86_64-20131030/sdk/tools/emulator"
-alias jmeter="/opt/apache-jmeter-2.10/bin/jmeter"
-
-# so much path...
-export PATH="/opt/sbt/bin:$FLEX_SDK_HOME/bin:$M2:$PATH:$HOME/.rvm/bin"
 
