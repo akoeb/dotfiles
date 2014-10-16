@@ -26,6 +26,7 @@ filetype indent on
 syntax enable
 
 " smart case conversion when searching:
+set ignorecase
 set smartcase
 
 " highlight search term:
@@ -54,3 +55,7 @@ autocmd FileType perl set errorformat=%f:%l:%m
 
 " Python 
 autocmd FileType python let python_highlight_all = 1
+
+" pathogen package manager for vim:
+call pathogen#infect()
+call pathogen#helptags()
