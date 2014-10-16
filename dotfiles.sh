@@ -1,7 +1,6 @@
 #!/bin/bash
 # install the dotfiles, make backup of old ones
 
-set -xe
 
 # check HOME env var
 if [ -z "$HOME" ]
