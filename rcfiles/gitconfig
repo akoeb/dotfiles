@@ -1,0 +1,14 @@
+[user]
+	name = Alexander Köb
+	email = nerdkram@koeb.me
+[core]
+	editor = vim
+	excludesfile = /home/koebi/.gitignore_global
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[push]
+	default = simple
