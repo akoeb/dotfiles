@@ -35,6 +35,9 @@ set hlsearch
 " show matching bracket:
 set showmatch
 
+" damn this fucking beep:
+set visualbell
+
 " PHP autocommands
 autocmd FileType php let php_sql_query = 1
 autocmd FileType php let php_htmlInStrings = 1
