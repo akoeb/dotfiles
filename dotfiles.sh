@@ -38,7 +38,7 @@ fi
 
 
 # cd into the base directory of the repository
-cd $(dirname ${PWD}/$0)
+cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 # copy one file to a target if they are not equal. makes backup of the overwritten file.
 function copy_file() {
