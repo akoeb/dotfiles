@@ -91,6 +91,11 @@ function diff_file() {
 
 # returns 0 if two given files are equal
 function is_equal() {
+    # non-existence of one means not equal
+    if [ ! -e "$1" ] || [ ! -e "$2" ]
+    then
+        return 1
+    fi
     if [ "$(sha1sum $1 | awk '{print $1}' )" == "$(sha1sum $2 | awk '{print $1}')" ]
     then
         return 0
