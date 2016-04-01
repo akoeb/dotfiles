@@ -55,7 +55,10 @@ function copy_file() {
 
     backup_file=$(dirname $to)/${to#$(dirname $to)/.}.$( date +%Y%m%d%H%M )
     echo "Overwriting file $to, original is backed up to $backup_file (consider updating the dotfile repo)"
-    cp $to $backup_file
+    if [ -e "$to" ]
+    then
+        cp $to $backup_file
+    fi
     cp $from $to
 }
 
