@@ -5,6 +5,8 @@ set t_Co=256
 set background=dark
 colorscheme elflord
 
+set encoding=utf-8
+
 "set autoindent " see filetype comment
 "set smartindent " see filetype comment
 
@@ -18,7 +20,7 @@ set shiftwidth=4
 set tabstop=4
 
 " filetype stuff
-"filetype plugin on
+filetype plugin on
 
 " filetype based identation:
 " no need for smartident or autoident, filetype can handle this
@@ -58,7 +60,13 @@ autocmd FileType perl set errorformat=%f:%l:%m
 
 " Python 
 autocmd FileType python let python_highlight_all = 1
+autocmd FileType python set textwidth=79
+autocmd FileType python set foldmethod=indent
+
+" Makefile
+autocmd FileType make set noexpandtab
+
 
 " pathogen package manager for vim:
-call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
