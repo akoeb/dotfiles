@@ -1,0 +1,72 @@
+" 256 terminal colors:
+set t_Co=256
+
+" black is beautiful
+set background=dark
+colorscheme elflord
+
+set encoding=utf-8
+
+"set autoindent " see filetype comment
+"set smartindent " see filetype comment
+
+" expand tabs to spaces
+set expandtab
+
+" but expand cleverly:
+set smarttab
+" use 4 spaces for tabs:
+set shiftwidth=4
+set tabstop=4
+
+" filetype stuff
+filetype plugin on
+
+" filetype based identation:
+" no need for smartident or autoident, filetype can handle this
+filetype indent on
+syntax enable
+
+" smart case conversion when searching:
+set ignorecase
+set smartcase
+
+" highlight search term:
+set hlsearch
+
+" show matching bracket:
+set showmatch
+
+" damn this fucking beep:
+set visualbell
+
+" PHP autocommands
+autocmd FileType php let php_sql_query = 1
+autocmd FileType php let php_htmlInStrings = 1
+autocmd FileType php let php_noShortTags = 1
+autocmd FileType php let php_parent_error_close = 1
+autocmd FileType php let php_folding = 1 
+autocmd FileType php set makeprg=php\ -l\ %
+autocmd FileType php set errorformat=%m\ in\ %f\ on\ line\ %l
+
+" Perl autocommands
+autocmd FileType perl let perl_fold = 1
+autocmd FileType perl let perl_fold_blocks = 1
+autocmd FileType perl set makeprg=perl\ -c\ %\ $*
+autocmd FileType perl set errorformat=%f:%l:%m
+autocmd FileType perl set makeprg=perl\ -c\ %\ $*
+autocmd FileType perl set errorformat=%f:%l:%m
+
+
+" Python 
+autocmd FileType python let python_highlight_all = 1
+autocmd FileType python set textwidth=79
+autocmd FileType python set foldmethod=indent
+
+" Makefile
+autocmd FileType make set noexpandtab
+
+
+" pathogen package manager for vim:
+"call pathogen#infect()
+"call pathogen#helptags()
